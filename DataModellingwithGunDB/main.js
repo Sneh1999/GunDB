@@ -144,3 +144,16 @@ function authorBook(opt) {
 
 
 
+  var saad = gun.get('user/1')
+  .path('name')
+  .put({first: "Saad", last:"Elbeleidy"});
+// Which is also the same as
+gun.get('user/1')
+  .put({name: {first: "Saad", last:"Elbeleidy"}});
+  saad.path('learning').val(function(value){
+    console.log(value);
+}); // equivalent to gunDB.val()
+
+saad.path('learning').map().val(function(value){
+    console.log(value);
+}); // Should output each object
